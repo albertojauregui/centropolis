@@ -1,0 +1,15 @@
+<div class="page-header">
+<h1>#Centropolis <small>en Instagram</small></h1>
+</div>
+<div class="row">
+<% @output.each do |item| %>
+<div class="col-md-3"><div class="thumbnail">
+<a href="<%= item['link'] %>" target="_blank"><img src='<%= item["images"]["standard_resolution"]["url"] %>' class="img-responsive" alt="" /></a>
+<div class="caption">
+<h3><a href="http://instagram.com/<%= item['user']['username'] %>" target="_blank"><%= item["user"]["username"] %></a></h3>
+<p><%= item["likes"]["count"] %> Likes</p>
+<p><%= truncate(item['caption']['text'], :length=>80) unless item['caption'].nil? %></p>
+</div>
+</div></div>
+<% end %>
+</div>

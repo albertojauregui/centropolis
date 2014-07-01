@@ -1,0 +1,6 @@
+class WelcomeController < ApplicationController
+  def index
+    data = HTTParty.get("https://api.instagram.com/v1/tags/centropolis/media/recent?client_id=22d190c6050d4b3f8f34af43f98b8161")
+    @output = data["data"][0]["images"]["standard_resolution"]["url"]
+  end
+end

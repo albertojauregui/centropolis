@@ -1,0 +1,29 @@
+<div class="page-header">
+<h1><a href="./" style="text-decoration:none;">#Centropolis <small>en Instagram</small></a></h1>
+</div>
+<div class="row">
+<% @output.each do |item| %>
+<div class="col-md-3"><div class="thumbnail">
+<a href="<%= item['link'] %>" target="_blank"><img src='<%= item["images"]["standard_resolution"]["url"] %>' class="img-responsive" alt="" /></a>
+<div class="caption">
+<h3><a href="http://instagram.com/<%= item['user']['username'] %>" target="_blank"><%= item["user"]["username"] %></a> <span class="pull-right"><small><i class="glyphicon glyphicon-heart"></i> <%= item["likes"]["count"] %></small></span></h3>
+<p><%= truncate(item['caption']['text'], :length=>80) unless item['caption'].nil? %></p>
+</div>
+</div></div>
+<% end %>
+<div class="clearfix"></div><br />
+<div class="col-md-12"><ul class="pager">
+<% if @firstdata['min_tag_id'] != @pagination['min_tag_id'] %>
+<li class="previous"><a href="/prev/<%= @pagination['next_max_tag_id'] %>">&larr; Inicio</a></li>
+<% end %>
+<li class="next"><a href="/next/<%= @pagination['next_max_tag_id'] %>">Siguiente &rarr;</a></li>
+</ul></div>
+<div class="clearfix"></div><br />
+</div>
+<script>
+$(function(){
+if( $(window).width() > 961 ){
+$(".thumbnail").matchHeight();
+}
+});
+</script>
