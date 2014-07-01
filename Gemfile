@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-#gem 'sqlite3'
-gem 'pg'
+gem 'sqlite3'
+#gem 'pg'
 gem 'rails_12factor'
 gem 'rails', '4.1.2'
 gem 'sass-rails', '~> 4.0.3'
